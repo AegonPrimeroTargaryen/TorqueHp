@@ -1,3 +1,5 @@
+
+
 @media (max-width: 900px){
     .navbar-collapse{
         display: flex;
@@ -7,6 +9,30 @@
 
 textarea {
   resize: none;
+}
+
+main {
+  padding-bottom: 20px;
+}
+
+footer {
+  color: white;
+}
+
+footer .row {  
+  display: flex;
+  text-align: center;
+}
+
+.row {
+  padding: 10px;
+}
+
+a:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  background-color: rgba(110, 110, 110, 0.227); /* fondo tenue */
+  border-radius: 0.25rem;
 }
 
 /* azul neón (#2272FF), negro (#1D1D1) */
