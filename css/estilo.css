@@ -1,0 +1,12 @@
+@media (max-width: 900px){
+    .navbar-collapse{
+        display: flex;
+        align-items: center;
+    }
+}
+
+textarea {
+  resize: none;
+}
+
+/* azul neón (#2272FF), negro (#1D1D1) */
