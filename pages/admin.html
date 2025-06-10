@@ -8,6 +8,7 @@
 
   <script src="../js/auth.js"></script>
   <script src="../js/login.js"></script>
+  <script src="../js/registro.js"></script>
 
   <title>Torque Hp</title>
   <link rel="stylesheet" href="../css/estilo.css">
@@ -31,27 +32,30 @@
     
     <main class="bg-secondary">
         <div class="container">
-            <div class="row">
-                <h2 class="text-center">Servicios</h2>
-                <div class="col-4">
-                    <h5 class="text-center">Matencion</h5>
-                    <a>
-                        <img class="d-block img-servicios" src="../img/mantencion.png" altr="imagen">
-                    </a>
+            <article class="row d-flex justify-content-center">
+                <div class="col-6">
+                    <h2 class="text-center">Registrar Usuario</h2>
+                    <form id="form-registro">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="reg-nombre" placeholder="">
+                            <label for="reg-nombre">Nombre</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="reg-username" placeholder="">
+                            <label for="reg-username">Username</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="reg-pass" placeholder="">
+                            <label for="reg-pass">Password</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="reg-rol" placeholder="">
+                            <label for="reg-rol">Rol</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </form>
                 </div>
-                <div class="col-4">
-                    <h5 class="text-center">Performance</h5>
-                    <a>
-                        <img class="d-block img-servicios" src="../img/performance.png" altr="imagen">
-                    </a>
-                </div>
-                <div class="col-4">
-                    <h5 class="text-center">Pintura</h5>
-                    <a>
-                        <img class="d-block img-servicios" src="../img/pintura.png" altr="imagen">
-                    </a>
-                </div>
-            </div>
+            </article>
         </div>
     </main>
 
