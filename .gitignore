@@ -1,0 +1,48 @@
+# Node dependencies
+node_modules/
+
+# Angular build output
+dist/
+out-tsc/
+
+# Compiled TypeScript
+*.js
+*.js.map
+
+# IDE / Editor folders and files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment files (personal / sensitive)
+.env
+*.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Angular CLI cache
+.angular/cache/
+
+# Coverage output
+coverage/
+
+# Optional: OS-specific
+ehthumbs.db
+Desktop.ini
+
+# Optional: temporary files
+*.swp
+*.tmp
+
+# Optional: package-lock or yarn.lock (if you use only one type of lock)
+# package-lock.json
+# yarn.lock
