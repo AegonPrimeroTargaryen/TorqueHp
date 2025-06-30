@@ -1,0 +1,17 @@
+@media (max-width: 900px){
+  .navbar-collapse{
+    display: flex;
+    align-items: center;
+  }
+
+  .form-login{
+    width: auto;
+  }
+}
+
+@media (min-width: 900px){
+  #navbarNav{
+    display: flex;
+    justify-content: end;
+  }
+}
