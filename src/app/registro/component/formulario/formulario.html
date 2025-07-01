@@ -1,0 +1,30 @@
+
+<article class="col-6">
+  <h2 class="text-center">Registrate</h2>
+  <form [formGroup]="registroForm" (ngSubmit)="submitRegistro()" class="justify-content-center">
+    <div class="form-floating mb-3">
+      <input formControlName="nombre" type="text" class="form-control" placeholder="name@example.com">
+      <label for="floatingNombre">Nombre</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input formControlName="username" type="text" class="form-control" placeholder="name@example.com">
+      <label for="floatingUsername">Username</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input formControlName="email" type="email" class="form-control" placeholder="name@example.com">
+      <label for="floatingEmail">Email</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input formControlName="password" type="password" class="form-control" placeholder="Password">
+      <label for="floatingPassword">Contraseña</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input formControlName="passRepi" type="password" class="form-control" placeholder="Password">
+      <label for="floatingPassConfirm">Repetir Contraseña</label>
+    </div>
+    <div class="mt-3 d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary">Registrarse</button>
+      <button type="button" class="btn btn-primary" (click)="limpiarFomr()">Limpiar</button>
+    </div>
+  </form>
+</article>

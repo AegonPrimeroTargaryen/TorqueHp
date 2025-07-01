@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row">
+    <h2 class="text-center">Servicios</h2>
+    @for (img of imagenes; track img){
+      <servicios-card [imagen]="img" class="col-4"></servicios-card>
+    }
+  </div>
+</div>

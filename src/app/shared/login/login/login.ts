@@ -2,6 +2,11 @@ import {Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChil
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Auth} from '../../../auth/auth';
 
+/**
+ * @description
+ * Componente el cual se encarga de tener aislado el formulario de login
+ * para el ingreso de los usuarios
+ */
 @Component({
   selector: 'shared-login',
   standalone: false,
@@ -17,7 +22,7 @@ export class Login implements OnInit {
   constructor(private auth: Auth, private fb: FormBuilder, private renderer: Renderer2) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],

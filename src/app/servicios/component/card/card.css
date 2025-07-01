@@ -1,0 +1,13 @@
+.img-servicios {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+a:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  background-color: rgba(110, 110, 110, 0.227); /* fondo tenue */
+  border-radius: 0.25rem;
+}

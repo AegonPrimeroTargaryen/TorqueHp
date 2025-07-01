@@ -5,16 +5,18 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import {SharedModule} from './shared/shared-module';
 import {HomeModule} from './home/home-module';
+import {RegistroModule} from './registro/registro-module';
 
 @NgModule({
   declarations: [
-    App
+    App,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    HomeModule
+    HomeModule,
+    RegistroModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
