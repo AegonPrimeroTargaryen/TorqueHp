@@ -29,11 +29,11 @@ export class Login implements OnInit {
     })
   }
 
-  submitForm(): void {
+  async submitForm(): Promise<void> {
     const username: string = this.loginForm.getRawValue().username;
     const pass: string = this.loginForm.getRawValue().password;
-
-    if (!this.loginForm.valid || !this.auth.login(username, pass)) {
+    const loginOk: boolean = await this.auth.login(username, pass);
+    if (!this.loginForm.valid || !loginOk) {
       this.loginEvent.emit();
       this.renderer.addClass(this.miLogin.nativeElement, 'show');
       this.renderer.setAttribute(this.miLogin.nativeElement, "data-bs-popper","none");

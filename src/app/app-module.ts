@@ -6,6 +6,7 @@ import { App } from './app';
 import {SharedModule} from './shared/shared-module';
 import {HomeModule} from './home/home-module';
 import {RegistroModule} from './registro/registro-module';
+import {provideHttpClient} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {RegistroModule} from './registro/registro-module';
     RegistroModule
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    provideHttpClient()
   ],
   bootstrap: [App]
 })

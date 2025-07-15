@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  min-height: 100%;
+  position: relative;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -10,4 +15,11 @@ body {
 
 main {
   padding-bottom: 20px;
+  margin-bottom: 126px;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }

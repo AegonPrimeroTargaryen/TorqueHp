@@ -1,5 +1,9 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {UserAuth} from '../interface/usuario';
+import {LoginRq} from '../interface/login';
+import {HttpClient} from '@angular/common/http';
+import {Login} from './service/login';
+import {firstValueFrom} from 'rxjs';
 
 /**
  * @description
@@ -11,6 +15,8 @@ import {UserAuth} from '../interface/usuario';
   providedIn: 'root'
 })
 export class Auth {
+  private _loginService: Login = inject(Login);
+
   public nombre: string = '';
   public username: string = '';
   public email: string = '';
@@ -28,22 +34,29 @@ export class Auth {
    * @param password Password de la cuenta de usuario
    * @returns boolean Respuesta del intento de autenticación del usuario
    */
-  public login (username: string, password: string): boolean {
-    const usuarios: UserAuth[] = JSON.parse(<string>localStorage.getItem('usuarios')) || [];
+  public async login(username: string, password: string): Promise<boolean> {
+    // const usuarios: UserAuth[] = JSON.parse(<string>localStorage.getItem('usuarios')) || [];
+    //
+    // const userLogin: UserAuth | undefined = usuarios.find(u => u.userName === username && u.password === password);
+    const userLogin: LoginRq = {
+      username: username,
+      password: password,
+    }
 
-    const userLogin: UserAuth | undefined = usuarios.find(u => u.userName === username && u.password === password);
+    const res: UserAuth = await firstValueFrom(this._loginService.login(userLogin));
 
-    if (userLogin) {
+    if (res) {
       const userLoged: UserAuth = {
-        nombre: userLogin.userName,
-        userName: userLogin.userName,
-        email: userLogin.email,
-        role: userLogin.role,
+        nombre: res.userName,
+        userName: res.userName,
+        email: res.email,
+        role: res.role,
       };
 
       this.initSesion(userLoged);
       localStorage.setItem('sesion', JSON.stringify(userLoged));
     }
+
     return this.isLoged;
   }
 
