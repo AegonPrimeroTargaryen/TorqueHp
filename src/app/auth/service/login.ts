@@ -14,4 +14,8 @@ export class Login {
   public login(login: LoginRq) : Observable<UserAuth> {
     return this._http.post<UserAuth>('http://localhost:8080/login', login);
   }
+
+  public registro(user: UserAuth): Observable<Boolean> {
+    return this._http.post<Boolean>('http://localhost:8080/registro', user);
+  }
 }

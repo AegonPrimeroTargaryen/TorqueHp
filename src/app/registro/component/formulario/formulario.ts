@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserAuth} from '../../../interface/usuario';
 import {Router} from '@angular/router';
+import {Login} from '../../../auth/service/login';
 
 @Component({
   selector: 'registro-formulario',
@@ -10,6 +11,8 @@ import {Router} from '@angular/router';
   styleUrl: './formulario.css'
 })
 export class Formulario implements OnInit {
+  private _loginService: Login = inject(Login);
+
   registroForm!: FormGroup;
 
   constructor(private fb: FormBuilder, private router: Router) { }
@@ -30,23 +33,20 @@ export class Formulario implements OnInit {
     } else if (this.registroForm.value.password !== this.registroForm.value.passRepi) {
       alert('Contraseñas no sin iguales');
     } else {
-      const usuarios: UserAuth[] = JSON.parse(<string>localStorage.getItem('usuarios'));
-      const username: string = this.registroForm.value.username;
-      const existeUser: UserAuth | undefined = usuarios.find(u => u.userName.toUpperCase() === username.toUpperCase());
-      if (existeUser) alert('Usuario ya existe, intente con otro');
-      else {
-        const newUser: UserAuth = {
-          nombre: this.registroForm.value.nombre,
-          userName: this.registroForm.value.username,
-          password: this.registroForm.value.password,
-          email: this.registroForm.value.email,
-          role: 'cli'
-        };
-        usuarios.push(newUser);
-        localStorage.setItem('usuarios', JSON.stringify(usuarios));
-        alert('Usuario creado');
-        this.router.navigate(['/home']);
-      }
+      const newUser: UserAuth = {
+        nombre: this.registroForm.value.nombre,
+        userName: this.registroForm.value.username,
+        password: this.registroForm.value.password,
+        email: this.registroForm.value.email,
+        role: "",
+      };
+      this._loginService.registro(newUser).subscribe(res => {
+        if (!res) alert('Usuario ya existe, intente con otro');
+        else {
+          alert('Usuario creado');
+          this.router.navigate(['/home']);
+        }
+      });
     }
   }
 
