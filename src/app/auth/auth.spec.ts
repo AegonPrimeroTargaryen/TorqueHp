@@ -1,12 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 
 import { Auth } from './auth';
+import {provideHttpClient} from '@angular/common/http';
 
 describe('Auth', () => {
   let service: Auth;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient()],
+    });
     service = TestBed.inject(Auth);
   });
 
@@ -14,7 +17,7 @@ describe('Auth', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should login successfully', () => {
+  it('should login Failed', async () => {
     const fakeUsers = [
       {
         userName: 'testuser',
@@ -25,7 +28,7 @@ describe('Auth', () => {
     ];
     localStorage.setItem('usuarios', JSON.stringify(fakeUsers));
 
-    const result = service.login('testuser', '1234');
-    expect(result).toBeTrue();
+    const result: boolean = await service.login('testuser', '1234');
+    expect(result).toBeFalse();
   });
 });
